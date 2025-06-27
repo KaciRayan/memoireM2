@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Valeurs - Analyse d'oeuvre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Analyser les valeurs de gris d'une œuvre</h1>
+    
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Analyser">
+    </form>
+
+    <button id="openModal">Pourquoi cette analyse ?</button>
+    
+    {% if masses_filename and histogram_filename and density_filename %}
+    <div class="container">
+        <div class="image-block">
+            <h2>Image de référence (visualisation par masses) :</h2>
+            <img src="{{ url_for('static', filename='images/' + masses_filename) }}" alt="Analyse par masses de valeurs">
+        </div>
+
+        <div class="analysis-block">
+            <h2>Histogramme des valeurs :</h2>
+            <img src="{{ url_for('static', filename='images/' + histogram_filename) }}" alt="Histogramme des valeurs">
+
+            <h2>Densité des valeurs :</h2>
+            <img src="{{ url_for('static', filename='images/' + density_filename) }}" alt="Courbe de densité des valeurs">
+        </div>
+        
+        <div>
+            {% if analysis_result %}
+            <h3>Analyse technique :</h3>
+            <p>{{ analysis_result }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% include "modal_values.html" %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+<footer>
+    <a href="{{ url_for('main.index') }}">
+        <button>Retour à l'index</button>
+    </a><br>
+</footer>
+
+</html>

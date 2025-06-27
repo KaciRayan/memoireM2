@@ -1,0 +1,27 @@
+<div id="modal" style="display: none">
+    <div>
+        <span id="closeModal">&times;</span>
+
+        <h2>Pourquoi analyser les valeurs ?</h2>
+        <p>
+            En dessin et en peinture, les <strong>"valeurs"</strong> sont primordiales, elles déterminent le contraste, la
+            profondeur et surtout le volume. <br><br>
+            Il s'agit d'une échelle du blanc au noir, représentant les différents niveaux d'intensité lumineuse (voir ci-dessous).
+            Une œuvre avec une gamme variée de valeurs est souvent plus lisible : cela explique pourquoi une bonne peinture reste bien faite même avec un filtre noir et blanc. <br>
+            Beaucoup d'artistes ont pour habitude d'appliquer ce filtre à travers une photo pour prendre du recul sur les valeurs de leur réalisation.
+            On les observe mieux en noir et blanc, sans être distrait par les couleurs.
+        </p>
+
+        <div>
+            <div>
+                <img src="{{ url_for('static', filename='images/mauvais_exemple_valeurs.jpg') }}" alt="Mauvais exemple" width="250">
+                <p>Valeurs limitées : résultat uniforme et monotone</p>
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/bon_exemple_valeurs.jpg') }}" alt="Bon exemple" width="250">
+                <p>Bonne variété de valeurs : volumes mieux définis</p>
+            </div>
+        </div>
+
+    </div>
+</div>

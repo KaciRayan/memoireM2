@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Composition - Analyse d'oeuvre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>Composition - en construction</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <button type="submit">Analyser</button>
+    </form>
+
+    {% if resultats %}
+    {% for regle in resultats %}
+    <div class="regle-analyse mb-4 p-3 border rounded">
+        <h4>{{ regle.regle }}</h4>
+        <p>{{ regle.description }}</p>
+        <p><em>{{ regle.interpretation }}</em></p>
+        {% if regle.visuel_path %}
+        <img src="{{ url_for('static', filename='images/' ~ regle.visuel_path) }}" class="img-fluid mt-2">
+        {% endif %}
+    </div>
+    {% endfor %}
+    {% elif submitted %}
+    <p>Aucune règle de composition claire n’a été détectée pour cette image.</p>
+    {% endif %}
+
+</body>
+
+<footer>
+    <a href="{{ url_for('main.index') }}">
+        <button>Retour à l'index</button>
+    </a><br>
+</footer>
+
+</html>

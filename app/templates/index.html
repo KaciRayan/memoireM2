@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Analyse d'oeuvre - Index</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <a href="{{ url_for('main.valeurs') }}">
+        <button>Analyse des valeurs</button>
+    </a><br>
+    
+    <a href="{{ url_for('main.composition') }}">
+        <button>Étude de la composition</button>
+    </a><br>
+    
+    <a href="{{ url_for('main.couleurs') }}">
+        <button>Analyse des couleurs</button>
+    </a><br>
+
+</body>
+
+</html>
